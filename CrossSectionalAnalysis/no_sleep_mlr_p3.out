@@ -1,0 +1,55 @@
+Mplus VERSION 8
+MUTHEN & MUTHEN
+02/04/2019   9:50 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+      Run bifactor model without sleep
+  DATA:
+      FILE IS C:\Users\cochran\Documents\EmoryProjectMplus\CFA-MLR\efaD33.dat;
+  VARIABLE:
+      NAMES ARE motherid, y1-y97;
+      USEV=y1-y97;
+      CLUSTER=motherid;
+      MISSING ARE ALL(999);
+  MODEL:
+        General     BY y1*,y2-y97;
+        Threat      BY y1*,y2-y4,y5,y7,y9,y11-y12,y14,y16,y18-y19,y26,y31-y33,y44-y45,
+                       y67,y86,y95;
+        Cope        BY y46*,y85-y89,y91,y93,y96-y97;
+        FNR         BY y6*,y8,y15,y59,y84,y90,y92,y94;
+        Loss        BY y10*,y13,y17,y20-y21,y25,y35,y41-y43,y47-y58,y60-y63,y83;
+        Somatic     BY y27*,y28-y30,y36-y40,y65-y66,y68,y82;
+        General@1;
+        Threat@1;
+        Cope@1;
+        FNR@1;
+        Loss@1;
+        Somatic@1;
+        General WITH Threat  @0;
+        General WITH Cope    @0;
+        General WITH FNR     @0;
+        General WITH Loss    @0;
+        General WITH Somatic @0;
+  ANALYSIS:
+      TYPE        = COMPLEX;
+      ESTIMATOR   = MLR;
+  OUTPUT:
+      STDY;
+
+*** ERROR in DATA command
+  The file specified for the FILE option cannot be found.  Check that this
+  file exists:  C:\Users\cochran\Documents\EmoryProjectMplus\CFA-MLR\efaD33.dat
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2017 Muthen & Muthen
